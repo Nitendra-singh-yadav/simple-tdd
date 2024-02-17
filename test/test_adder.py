@@ -1,4 +1,5 @@
 from src.adder import add
+import pytest
 
 def test_empty_string():
     assert add('') == 0
@@ -16,6 +17,6 @@ def test_different_delimiter():
     assert add('//;\n1;2;2') == 5
 
 def test_negative_values():
-    with pytset.raises(ValueError) as erinfo:
+    with pytest.raises(ValueError) as erinfo:
         add('1,2,-4,-6,3')
     assert str(erinfo.value) == 'negative numbers not allowed: -4, -6'
